@@ -1,35 +1,68 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useSelector, useDispatch } from 'react-redux';
+import { increment, decrement, incrementByAmount, decrementByAmount, pushToStack, popFromStack } from './Store/Slices/counterSlice';
+import { useState } from 'react';
+import './App.css';
 
-function App() {
-  const [count, setCount] = useState(0)
+
+export const App = () => {
+  const dispatch = useDispatch();
+  const count = useSelector((state) => state.counter.count);
+  const stack = useSelector((state) => state.counter.stack); // 🔥 Traer la pila desde Redux
+  const [inputValue, setInputValue] = useState("");
+
+  const HandleIncrementByAmount = () => {
+    const value = parseInt(inputValue);
+    if (!isNaN(value)) {
+      dispatch(incrementByAmount(value));
+    }
+  };
+
+  const HandleDecrementByAmount = () => {
+    const value = parseInt(inputValue);
+    if (!isNaN(value)) {
+      dispatch(decrementByAmount(value));
+    }
+  };
+
+  const handlePushToStack = () => {
+    const value = parseInt(inputValue);
+    if (!isNaN(value)) {
+      dispatch(pushToStack(value));
+      setInputValue("");
+    }
+  };
+
+  const handlePopFromStack = () => {
+    dispatch(popFromStack()); 
+  };
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+    <div>
+      <h1>Counter: {count}</h1> 
+      <button onClick={() => dispatch(increment())}>Increment by 1</button>
+      <button onClick={() => dispatch(decrement())}>Decrement by 1</button>
 
-export default App
+      <br />
+
+      <div>
+        <input
+          type="number"
+          value={inputValue}
+          onChange={(e) => setInputValue(e.target.value)}
+          placeholder="Enter a number"
+        />
+        <button onClick={HandleIncrementByAmount}>Increment by amount</button>
+        <button onClick={HandleDecrementByAmount}>Decrement by amount</button>
+        <button onClick={handlePushToStack}>Push to Stack</button>
+        <button onClick={handlePopFromStack}>Pop from Stack</button>
+      </div>
+
+      <h2>Stack:</h2>
+      <ul>
+        {stack.map((item, index) => (
+          <li key={index}>{item}</li> // 🔥 Mostrar los valores de la pila
+        ))}
+      </ul>
+    </div>
+  );
+};
