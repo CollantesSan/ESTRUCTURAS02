@@ -1,0 +1,74 @@
+/* index.css - Estilo oscuro, centrado y limpio */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  height: 100%;
+  width: 100%;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #1c2431; /* Gris oscuro opaco (tipo slate-800) */
+  color: #f8fafc; /* Blanco suave (tipo slate-50) */
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  padding: 2rem;
+  overflow-y: auto;
+}
+
+a {
+  color: #38bdf8; /* Azul claro tipo sky-400 */
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  text-decoration: underline;
+  color: #7dd3fc; /* Azul más claro al pasar el mouse */
+}
+
+button {
+  background-color: #13996c; /* Gris más claro (slate-700) */
+  color: #f8fafc;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.75rem;
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0.5rem 0.25rem;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+  border: none;
+}
+
+button:hover {
+  background-color: hsl(220, 5%, 34%); /* Un poco más claro al pasar el mouse */
+}
+
+button:active {
+  transform: scale(0.97);
+}
+
+h2, h3 {
+  margin-bottom: 1rem;
+}
+
+ul {
+  padding-left: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+div {
+  max-width: 640px; /* Para que no se expanda demasiado */
+  width: 100%;
+}
+
+
+
+
+
