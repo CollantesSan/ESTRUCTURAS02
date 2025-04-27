@@ -1,0 +1,101 @@
+body {
+  background-color: #ffffff;
+  color: #000000;
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+}
+
+/* Contenedor principal */
+.layout-home {
+  display: grid;
+  grid-template-columns: 2fr 3fr 2fr; /* Laterales más anchos */
+  width: 100vw; /* Muy importante: que ocupe TODO el ancho de la ventana */
+  margin-top: 80px; /* Espacio para navbar */
+  min-height: calc(100vh - 80px);
+}
+
+/* Columnas laterales */
+.columna-lateral {
+  background-color: #e60000;
+  min-height: calc(100vh - 80px);
+}
+
+/* Centro */
+.columna-centro {
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+/* Contenido interno justificado */
+.columna-centro p,
+.columna-centro li {
+  text-align: justify;
+}
+
+/* Navbar */
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #e60000;
+  padding: 10px;
+  border-radius: 0 0 20px 20px;
+  display: flex;
+  justify-content: center;
+  z-index: 100;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+nav button, nav a {
+  margin: 0 10px;
+}
+
+/* Botones generales */
+button {
+  background-color: #e60000;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background-color: #990000;
+  transform: scale(1.05);
+}
+
+/* Input de búsqueda y formularios */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="search"] {
+  background-color: #ffffff; /* Fondo blanco */
+  border: 2px solid #e60000; /* Bordes rojos más fuertes */
+  padding: 10px 20px;
+  border-radius: 30px;
+  color: black;
+  font-size: 16px;
+  margin-bottom: 20px;
+  width: 100%;
+  box-sizing: border-box; /* Para que padding no desborde */
+}
+
+/* Cuando haces click en el input */
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+input[type="search"]:focus {
+  border-color: #990000; /* Más oscuro al hacer foco */
+  outline: none;
+  background-color: #fff;
+}
