@@ -1,3 +1,20 @@
+:root {
+  --primary-color: #646cff;
+  --secondary-color: #61dafb;
+  --text-color: #333;
+  --muted-color: #888;
+  --bg-color: #f9f9f9;
+  --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
 #root {
   max-width: 1280px;
   margin: 0 auto;
@@ -8,14 +25,13 @@
 .logo {
   height: 6em;
   padding: 1.5em;
-  will-change: filter;
   transition: filter 300ms;
 }
 .logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+  filter: drop-shadow(0 0 2em var(--primary-color));
 }
 .logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+  filter: drop-shadow(0 0 2em var(--secondary-color));
 }
 
 @keyframes logo-spin {
@@ -34,9 +50,16 @@
 }
 
 .card {
+  background: white;
   padding: 2em;
+  border-radius: 1rem;
+  box-shadow: var(--card-shadow);
+  margin: 1em auto;
+  max-width: 600px;
 }
 
 .read-the-docs {
-  color: #888;
+  color: var(--muted-color);
+  font-size: 0.9em;
 }
+
